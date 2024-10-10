@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+message MyModel{
+	message Response {
+		message Body {
+			int32 id = 1;
+			string hash = 2;
+			message Head {
+				message Environment {
+					int32 id = 1;
+					string hash = 2;
+					string typeEnv = 3;
+					int32 temperatureInCelsius = 4;
+					int32 humidityInPercent = 5;
+					int32 windVelocity = 6;
+				}
+				Environment environment = 1;
+			}
+			Head head = 3;
+			message Torso {
+				message Environment {
+					int32 id = 1;
+					string hash = 2;
+					string typeEnv = 3;
+					int32 temperatureInCelsius = 4;
+					int32 humidityInPercent = 5;
+					int32 windVelocity = 6;
+				}
+				Environment environment = 1;
+			}
+			Torso torso = 4;
+			message Clothing {
+				int32 id = 1;
+				string hash = 2;
+				string covering = 3;
+				message Fabric {
+					int32 id = 1;
+					string hash = 2;
+					string ref = 3;
+					string rf = 4;
+					string ip = 5;
+					string density = 6;
+					string thickness = 7;
+				}
+				Fabric fabric = 4;
+			}
+			Clothing clothing = 5;
+		}
+		Body body = 1;
+
+	}
+	Response response = 1;
+}
+
